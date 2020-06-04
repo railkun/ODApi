@@ -1,0 +1,1 @@
+class UndefinedHeroIdError < StandardError; end
