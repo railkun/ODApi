@@ -2,7 +2,7 @@ require '../lib/odapi'
 require 'webmock/rspec'
 require 'pry'
 
-RSpec.describe ODApiLib::ODApi do
+RSpec.describe ODApi do
   describe '.heroes' do
     before do
       stub_request(:get, 'https://api.opendota.com/api/heroes')
@@ -24,7 +24,7 @@ RSpec.describe ODApiLib::ODApi do
     end
 
     context 'expect no empty massif' do
-      it { expect(subject.first).eql?(Hero.new(hero_attr)) }
+      it { expect(subject.first).eql?(ODApi::Hero.new(hero_attr)) }
     end
   end
 
@@ -56,14 +56,14 @@ RSpec.describe ODApiLib::ODApi do
 
       let(:params) { { hero: 1 } }
 
-      it { expect(subject.first).eql?(Match.new(match_attr)) }
+      it { expect(subject.first).eql?(ODApi::Match.new(match_attr)) }
     end
 
     context 'if wrong hero id' do
       let(:match_attr) { [].to_json }
       let(:params) { { hero: 999 } }
 
-      it { expect { subject }.to raise_error(ODApiLib::ODApi::UNDEFINED_HERO_ID_ERROR) }
+      it { expect { subject }.to raise_error(ODApi::UndefinedHeroIdError) }
     end
   end
 end

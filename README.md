@@ -5,6 +5,11 @@ This is lib to work with the Opendota API
 ## Usage
 
   ```
+  # Require odapi.rb to your rb file
+  require_relative 'lib/odapi'
+  ```
+
+  ```
   # Get an array of hero objects
   ODApi.heroes
   ```

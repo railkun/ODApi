@@ -1,1 +1,3 @@
-class UndefinedHeroIdError < StandardError; end
+module ODApi
+  class UndefinedHeroIdError < StandardError; end
+end
