@@ -19,3 +19,8 @@ This is lib to work with the Opendota API
   cd/spec
   bundle exec rspec odaip_spec.rb
   ```
+## Rubocop
+
+  ```
+  bundle exec rubocop
+  ```
